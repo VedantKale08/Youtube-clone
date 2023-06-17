@@ -1,0 +1,112 @@
+[
+    {
+        "id":1,
+        "name":"All",
+        "isActive":true
+    },
+    {
+        "id":2,
+        "name":"Gaming",
+        "isActive":false
+    },
+    {
+        "id":3,
+        "name":"Music",
+        "isActive":false
+    },
+    {
+        "id":4,
+        "name":"Travel",
+        "isActive":false
+    },
+    {
+        "id":5,
+        "name":"Health",
+        "isActive":false
+    },
+    {
+        "id":6,
+        "name":"Entertainment",
+        "isActive":false
+    },
+    {
+        "id":7,
+        "name":"Live",
+        "isActive":false
+    },
+    {
+        "id":8,
+        "name":"Education",
+        "isActive":false
+    },
+    {
+        "id":9,
+        "name":"Science",
+        "isActive":false
+    },
+    {
+        "id":10,
+        "name":"Sports",
+        "isActive":false
+    },
+    {
+        "id":11,
+        "name":"BGMI",
+        "isActive":false
+    },
+    {
+        "id":12,
+        "name":"Valorant",
+        "isActive":false
+    },
+    {
+        "id": 13,
+        "name": "Music",
+        "isActive":false
+    },
+    {
+        "id": 14,
+        "name": "Travel",
+        "isActive":false
+    },
+    {
+        "id": 15,
+        "name": "Health",
+        "isActive":false
+    },
+    {
+        "id": 16,
+        "name": "Entertainment",
+        "isActive":false
+    },
+    {
+        "id": 17,
+        "name": "Live",
+        "isActive":false
+    },
+    {
+        "id": 18,
+        "name": "Education",
+        "isActive":false
+    },
+    {
+        "id": 19,
+        "name": "Science",
+        "isActive":false
+    },
+    {
+        "id": 20,
+        "name": "Sports",
+        "isActive":false
+    },
+    {
+        "id": 21,
+        "name": "BGMI",
+        "isActive":false
+    },
+    {
+        "id": 22,
+        "name": "Valorant",
+        "isActive":false
+    }
+]
