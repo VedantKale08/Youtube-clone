@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Videocard from '@/Components/Videocard';
 import { isEmpty } from 'lodash';
 import React, { useEffect, useState } from 'react'
