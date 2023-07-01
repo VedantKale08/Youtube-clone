@@ -8,5 +8,5 @@ export const abbreviateNumber = (num) => {
     if (num >= 1e3) {
         return (num / 1e3).toFixed(1) + 'K';
     }
-    return num.toString();
+    return num;
 };

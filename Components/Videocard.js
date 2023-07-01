@@ -1,13 +1,15 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import {getTime} from '../Functions/GetTime'
+import { getTime } from '../Functions/GetTime'
 import { abbreviateNumber } from '../Functions/GetAbbreviateNumber'
 import { getDuration } from '../Functions/getDuration'
+import { useRouter } from 'next/router'
 
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 
 function Videocard({ item }) {
   const [channelData, setChannelData] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const getData = () => {
@@ -24,12 +26,14 @@ function Videocard({ item }) {
   return (
     <div>
       <div className='w-full max-w-[380px] aspect-[70/45] relative rounded-lg cursor-pointer'>
-        <Image src={item?.snippet?.thumbnails?.maxres?.url} alt="" fill objectFit='contain' />
+        <div onClick={() => router.push(`/videos/${item?.id}`)}>
+          <Image src={item?.snippet?.thumbnails?.maxres?.url} alt="" fill objectFit='contain' />
+        </div>
         <p className='absolute bottom-0 right-0 px-2 py-1 mb-5   mr-1 text-[10px] rounded-md bg-[rgb(0,0,0,0.8)]'>{getDuration(item?.contentDetails?.duration)}</p>
       </div>
       <div className='flex'>
-        <div className='w-10 h-10 rounded-full bg-[#2e2e2e] mr-2 relative cursor-pointer'>
-          <Image src={channelData[0]?.snippet?.thumbnails?.high?.url} fill prioriy alt="channel" className='rounded-full'/>
+        <div className='w-10 h-10 rounded-full bg-[#2e2e2e] mr-2 relative cursor-pointer' >
+          <Image src={channelData[0]?.snippet?.thumbnails?.high?.url} fill prioriy alt="channel" className='rounded-full' />
         </div>
         <div className='flex-1'>
           <p className='line-clamp-2 cursor-pointer'>{item?.snippet?.title}</p>

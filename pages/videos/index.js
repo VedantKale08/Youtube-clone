@@ -3,6 +3,7 @@ import { isEmpty } from 'lodash';
 import React, { useEffect, useState } from 'react'
 import VideoSkeleton from '@/Skeletons/videoSkeleton';
 import { sidebarState } from '@/Store/sidebarState';
+import ParentLayout from '@/Layouts/ParentLayout';
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 function index() {
   const [data, setData] = useState({});
@@ -37,6 +38,7 @@ function index() {
           .then(response => {
             setData(prev => [...prev, ...response.items]);
             setLoading(false)
+            setPageToken('');
           })
           .catch(err => console.error(err))
       }
@@ -46,7 +48,7 @@ function index() {
 
   console.log();
   return (
-    <>
+    <ParentLayout>
       <div className={`grid ${isSidebarOpen ? 'grid-cols-4' : 'grid-cols-5'} px-10 gap-4 w-[95%]`}>
           {
           !isEmpty(data) && 
@@ -77,7 +79,7 @@ function index() {
             )
           }
       </div>
-    </>
+    </ParentLayout>
   )
 }
 
