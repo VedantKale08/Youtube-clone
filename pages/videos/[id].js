@@ -67,22 +67,22 @@ function SingleVideo() {
   }, [videoId]);
   return (
     <ParentLayout isClosed={true}>
-      <div className='grid grid-cols-1 md:grid-cols-[0.9fr,312px] md:gap-8 md:my-4 p-4 md:p-0'>
+      <div className='grid grid-cols-1 min-h-screen md:grid-cols-[0.9fr,312px] md:gap-8 md:my-4 p-4 md:p-0'>
         <div className='w-full'>
           <iframe
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
             title="YouTube Video Player"
             frameBorder="0"
             allowFullScreen
-            className='w-full h-[712px]'
+            className='w-full md:h-[712px] h-[300px]'
           ></iframe>
-          <p className='py-2 font-bold text-xl'>{videoData?.snippet?.localized?.title}</p>
+          <p className='my-2 font-bold text-md mt-4 md:text-xl line-clamp-2'>{videoData?.snippet?.localized?.title}</p>
           <div className='flex items-center'>
             <div className='w-10 h-10 rounded-full bg-[#2e2e2e] mr-2 relative cursor-pointer' >
               <Image src={channelData?.snippet?.thumbnails?.high?.url} fill prioriy alt="channel" className='rounded-full' />
             </div>
             <div className='px-2'>
-              <p className='line-clamp-2 font-bold cursor-pointer'>{channelData?.snippet?.title}</p>
+              <p className='line-clamp-2 font-bold cursor-pointer text-sm md:text-md'>{channelData?.snippet?.title}</p>
               <p className='text-sm text-[#aaa] cursor-pointer hover:text-[#fff]'>{abbreviateNumber(channelData?.statistics?.subscriberCount)} subscribers</p>
             </div>
             <button className='bg-white text-black mx-2 rounded-full text-sm px-4 hover:opacity-80 h-9'>Subscribe</button>

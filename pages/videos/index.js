@@ -5,12 +5,14 @@ import React, { useEffect, useState } from 'react'
 import VideoSkeleton from '@/Skeletons/videoSkeleton';
 import { sidebarState } from '@/Store/sidebarState';
 import ParentLayout from '@/Layouts/ParentLayout';
+import { isMobile } from 'react-device-detect'
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 function index() {
   const [data, setData] = useState({});
   const [isLoading, setLoading] = useState(false);
   const [pageToken, setPageToken] = useState('');
   const isSidebarOpen = sidebarState((state) => state.isSidebarOpen);
+  const setSidebarOpen = sidebarState((state) => state.setSidebarOpen);
   
   useEffect(() => {
     if(isEmpty(data)) {
@@ -47,10 +49,16 @@ function index() {
     }
   }, [pageToken])
 
-  console.log();
+  useEffect(() => {
+    if (isMobile){
+      setSidebarOpen(false)
+    }
+  }, [isMobile])
+  
+
   return (
     <ParentLayout>
-      <div className={`grid ${isSidebarOpen ? 'grid-cols-4' : 'grid-cols-5'} px-10 gap-4 w-[95%]`}>
+      <div className={`grid ${isSidebarOpen ? 'md:grid-cols-4' : 'md:grid-cols-5'} grid-cols-1 px-2 md:px-10 gap-4 md:w-[95%]`}>
           {
           !isEmpty(data) && 
             data?.map((item,index) => {

@@ -11,12 +11,13 @@ import More from '../Assets/Svgs/down_arrow.svg'
 import { sidebarState } from '@/Store/sidebarState'
 import MenuItem from './MenuItem'
 import SubscriptionList from './SubscriptionList'
+import { isMobile } from 'react-device-detect';
 
 function Sidebar() {
   const isSidebarOpen = sidebarState((state) => state.isSidebarOpen);
   return (
     <>
-      <div className={`bg-[#0f0f0f] h-[calc(100vh-80px)] shrink-0 sticky top-20 ${isSidebarOpen ? 'w-60' : 'w-20'} p-2 pr-4 overflow-scroll scroll-smooth no-scrollbar text-white `} >
+      <div className={`bg-[#0f0f0f] h-[calc(100vh-80px)] md:block shrink-0 sticky top-20 ${isSidebarOpen ? 'w-60' : isMobile ? 'hidden' : 'w-20'} p-2 pr-4 overflow-scroll scroll-smooth no-scrollbar text-white `} >
         <MenuItem image={Home} text="Home" active={true}/>
         <MenuItem image={Shorts} text="Shorts" />
         <MenuItem image={Subscriptions} text="Subscriptions" />
